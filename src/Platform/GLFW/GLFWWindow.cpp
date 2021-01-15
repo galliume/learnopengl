@@ -1,7 +1,7 @@
-#include "Window.h"
+#include "GLFWWindow.h"
 #include <iostream>
 
-Window::Window(int width, int height, std::string name, int openGLMajorVersion, int openGLMinorVersion)
+GLFWWindow::GLFWWindow(int width, int height, std::string name, int openGLMajorVersion, int openGLMinorVersion)
 {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, openGLMajorVersion);
@@ -32,18 +32,28 @@ Window::Window(int width, int height, std::string name, int openGLMajorVersion, 
     glViewport(0, 0, width, height);
 }
 
-bool Window::ShouldClose()
+bool GLFWWindow::ShouldClose()
 {
     return glfwWindowShouldClose(window);
 }
 
-void Window::SwapBuffers()
+void GLFWWindow::SwapBuffers()
 {
     glfwSwapBuffers(window);
 }
 
-void Window::ProcessInput()
+void GLFWWindow::ProcessInput()
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+}
+
+void GLFWWindow::PollEvents()
+{
+    glfwPollEvents();
+}
+
+void GLFWWindow::Terminate()
+{
+    glfwTerminate();
 }

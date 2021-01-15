@@ -22,6 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{A2F7BF44-7AD4-4749-B54A-6BFB24A03B04}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <ProjectName>Rebi</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,8 +70,8 @@
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\Users\Guillaume\Documents\_workspace\learnopengl\vendor\Lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\Guillaume\Documents\_workspace\learnopengl\vendor\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Guillaume\Documents\_workspace\Rebi\vendor\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Guillaume\Documents\_workspace\Rebi\vendor\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -107,12 +108,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\LearnOpenGL.cpp" />
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\Rebi.cpp" />
+    <ClCompile Include="src\Platform\PlatformFactory.cpp" />
+    <ClCompile Include="src\Rebi\App.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\VertexBuffer.cpp" />
+    <ClCompile Include="src\Platform\GLFW\GLFWWindow.cpp" />
     <ClCompile Include="vendor\Include\glad\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Window.h" />
+    <ClInclude Include="src\Platform\Abstract\AbstractWindow.h" />
+    <ClInclude Include="src\Platform\PlatformFactory.h" />
+    <ClInclude Include="src\Rebi\App.h" />
+    <ClInclude Include="src\Rebi\rebipch.h" />
+    <ClInclude Include="src\Renderer\OpenGL\VertexBuffer.h" />
+    <ClInclude Include="src\Platform\GLFW\GLFWWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
