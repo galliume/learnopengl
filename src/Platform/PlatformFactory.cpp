@@ -6,10 +6,10 @@ AbstractWindow* PlatformFactory::GetPlatform(int width, int height, std::string 
 	switch (PLATFORM)
 	{
 	case 0:	
-		return &GLFWWindow(width, height, name, 4, 6);
+		return new GLFWWindow(width, height, name, 4, 6);
 		break;
 	default:
-		return &GLFWWindow(width, height, name, 4, 6);
+		return new GLFWWindow(width, height, name, 4, 6);
 		break;
 	}
 }
