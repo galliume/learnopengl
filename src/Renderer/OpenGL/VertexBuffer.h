@@ -6,7 +6,9 @@
 class VertexBuffer
 {
 public:
-	VertexBuffer();
+	VertexBuffer(GLenum target, const void* data, GLenum usage);
+	unsigned int GetVBO() { return VBO; };
+	void Delete();
 private:
-	unsigned int VBO;	
+	unsigned int VBO;
 };
