@@ -2,11 +2,8 @@
 
 IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, const void* indices, int indicesSize, GLenum type)
 {
-	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
-
-	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, verticesSize, vertices, type);
@@ -25,5 +22,4 @@ void IndexVertexBuffer::Delete()
 {
 	glDeleteBuffers(1, &EBO);
 	glDeleteBuffers(1, &VBO);
-	glDeleteVertexArrays(1, &VAO);
 }

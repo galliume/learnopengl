@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "../Renderer/OpenGL/VertexArray.h"
 #include "../Renderer/OpenGL/VertexBuffer.h"
 #include "../Renderer/OpenGL/IndexVertexBuffer.h"
 #include "../Renderer/OpenGL/Shader.h"
@@ -16,10 +17,15 @@ App::App(int width, int height, std::string name)
 void App::Run()
 {
     float vertices[] = {
-         0.5f,  0.5f, 0.0f,  // top right
-         0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f,  0.5f, 0.0f   // top left 
+        -0.5f, -0.5f, 0.0f,
+         0.5f, -0.5f, 0.0f,
+         0.0f,  0.5f, 0.0f
+    };
+    float vertices2[] = {
+         0.2f, -0.2f, 0.1f,  // bottom right
+         0.2f,  0.2f, 0.1f,  // top right
+        -0.2f, -0.2f, 0.1f,  // bottom left
+        -0.2f,  0.2f, 0.1f   // top left 
     };
     unsigned int indices[] = {  // note that we start from 0!
         0, 1, 3,   // first triangle
@@ -45,26 +51,39 @@ void App::Run()
     shader.AddFragment(1, &fragmentShaderSource);
     shader.Bind();
 
-    //VertexBuffer vertexBuffer(vertices, sizeof(vertices));
-    //vertexBuffer.SetAttribPointer(3, 3, (void*)0);
+    VertexArray vertexArray(1);
 
+    VertexBuffer vertexBuffer(vertices, sizeof(vertices));
+    vertexBuffer.SetAttribPointer(3, 3, (void*)0);
+
+    /**
     IndexVertexBuffer indexedVertexBuffer(vertices, sizeof(vertices), indices, sizeof(indices));
     indexedVertexBuffer.SetAttribPointer(3, 3, (void*)0);
+
+    IndexVertexBuffer indexedVertexBuffer2(vertices2, sizeof(vertices2), indices, sizeof(indices));
+    indexedVertexBuffer2.SetAttribPointer(3, 3, (void*)0);
+    */
 
     while (!window->ShouldClose())
     {
         window->ProcessInput();
         
         Renderer::Clear();
-        //Renderer::DrawArrays(vertexBuffer.GetVAO(), 3);
-        Renderer::DrawElements(indexedVertexBuffer.GetVAO(), 6);
+        vertexBuffer.Bind();
+        Renderer::DrawArrays(vertexArray.GetVAO(), 3);
+        
+        //Renderer::DrawElements(6);
+        //Renderer::DrawElements(6);
 
         window->SwapBuffers();
         window->PollEvents();
     }
 
-    indexedVertexBuffer.Delete();
-    //vertexBuffer.Delete();
+    //indexedVertexBuffer.Delete();
+    //indexedVertexBuffer2.Delete();
+
+    vertexBuffer.Delete();
+    vertexArray.Delete();
     shader.Delete();
 
     window->Terminate();

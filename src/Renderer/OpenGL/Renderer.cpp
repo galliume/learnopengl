@@ -6,12 +6,12 @@ void Renderer::Clear()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawArrays(unsigned int VAO, GLsizei count, GLenum mode)
+void Renderer::DrawArrays(GLsizei count, GLenum mode)
 {
 	glDrawArrays(mode, 0, count);
 }
 
-void Renderer::DrawElements(unsigned int VAO, GLsizei count, GLenum mode)
+void Renderer::DrawElements(GLsizei count, GLenum mode)
 {
 	glDrawElements(mode, count, GL_UNSIGNED_INT, 0);
 }

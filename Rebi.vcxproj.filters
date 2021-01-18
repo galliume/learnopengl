@@ -42,6 +42,9 @@
     <ClCompile Include="src\Renderer\OpenGL\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\VertexArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Rebi\rebipch.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\OpenGL\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\OpenGL\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
