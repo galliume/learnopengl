@@ -10,7 +10,7 @@
 class GLFWWindow : public AbstractWindow
 {
 public:
-	GLFWWindow(int width, int height, std::string name, int openGLMajorVersion = 4, int openGLMinorVersion = 6);
+	GLFWWindow(int width, int height, std::string name, int openGLMajorVersion, int openGLMinorVersion);
 	void ProcessInput();
 	bool ShouldClose();
 	void SwapBuffers();

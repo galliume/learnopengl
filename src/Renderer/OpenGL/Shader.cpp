@@ -1,15 +1,15 @@
 #include "Shader.h"
 
-void Shader::AddVertexShader(GLsizei count, const GLchar** string, const GLint* length)
+void Shader::AddVertex(GLsizei count, const GLchar** string, const GLint* length)
 {
 	vertexShader = AddShader(GL_VERTEX_SHADER, count, string, length);
 }
-void Shader::AddFragmentShader(GLsizei count, const GLchar** string, const GLint* length)
+void Shader::AddFragment(GLsizei count, const GLchar** string, const GLint* length)
 {	
 	fragmentShader = AddShader(GL_FRAGMENT_SHADER, count, string, length);
 }
 
-void Shader::Link()
+void Shader::Bind()
 {
 	shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertexShader);
@@ -29,13 +29,8 @@ void Shader::Link()
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
-}
 
-void Shader::Draw(unsigned int VAO, GLenum mode, GLint first, GLsizei count)
-{
 	glUseProgram(shaderProgram);
-	glBindVertexArray(VAO);
-	glDrawArrays(mode, first, count);
 }
 
 void Shader::Delete()

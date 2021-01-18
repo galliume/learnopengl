@@ -111,7 +111,8 @@
     <ClCompile Include="src\Rebi.cpp" />
     <ClCompile Include="src\Platform\PlatformFactory.cpp" />
     <ClCompile Include="src\Rebi\App.cpp" />
-    <ClCompile Include="src\Renderer\OpenGL\VertexArrayObject.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\IndexVertexBuffer.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\Renderer.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\VertexBuffer.cpp" />
     <ClCompile Include="src\Platform\GLFW\GLFWWindow.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\Shader.cpp" />
@@ -122,7 +123,8 @@
     <ClInclude Include="src\Platform\PlatformFactory.h" />
     <ClInclude Include="src\Rebi\App.h" />
     <ClInclude Include="src\Rebi\rebipch.h" />
-    <ClInclude Include="src\Renderer\OpenGL\VertexArrayObject.h" />
+    <ClInclude Include="src\Renderer\OpenGL\IndexVertexBuffer.h" />
+    <ClInclude Include="src\Renderer\OpenGL\Renderer.h" />
     <ClInclude Include="src\Renderer\OpenGL\VertexBuffer.h" />
     <ClInclude Include="src\Platform\GLFW\GLFWWindow.h" />
     <ClInclude Include="src\Renderer\OpenGL\Shader.h" />

@@ -8,10 +8,9 @@
 class Shader
 {
 public:
-	void AddVertexShader(GLsizei count, const GLchar** string, const GLint* length = NULL);
-	void AddFragmentShader(GLsizei count, const GLchar** string, const GLint* length = NULL);
-	void Link();
-	void Draw(unsigned int VAO, GLenum mode, GLint first, GLsizei count);
+	void AddVertex(GLsizei count, const GLchar** string, const GLint* length = NULL);
+	void AddFragment(GLsizei count, const GLchar** string, const GLint* length = NULL);
+	void Bind();
 	void Delete();
 private:
 	unsigned int vertexShader;
