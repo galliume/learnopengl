@@ -2,11 +2,11 @@
 
 VertexArray::VertexArray(GLsizei n)
 {
-	glGenVertexArrays(n, &VAO);
-	glBindVertexArray(VAO);
+	glGenVertexArrays(n, &m_VAO);
+	glBindVertexArray(m_VAO);
 }
 
 void VertexArray::Delete()
 {
-	glDeleteVertexArrays(1, &VAO);
+	glDeleteVertexArrays(1, &m_VAO);
 }

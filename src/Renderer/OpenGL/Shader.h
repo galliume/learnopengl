@@ -13,9 +13,9 @@ public:
 	void Bind();
 	void Delete();
 private:
-	unsigned int vertexShader;
-	unsigned int fragmentShader;
-	unsigned int shaderProgram;
+	unsigned int m_VertexShader;
+	unsigned int m_FragmentShader;
+	unsigned int m_ShaderProgram;
 private:
 	unsigned int AddShader(GLenum shaderType, GLsizei count, const GLchar** string, const GLint* length = NULL);
 };

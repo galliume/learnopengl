@@ -12,7 +12,7 @@ public:
 	void UnBind();
 	void Delete();
 private:
-	unsigned int VBO = 0;
-	GLenum target = GL_ARRAY_BUFFER;
-	GLenum type = GL_STATIC_DRAW;
+	unsigned int m_VBO = 0;
+	GLenum m_Target = GL_ARRAY_BUFFER;
+	GLenum m_Type = GL_STATIC_DRAW;
 };

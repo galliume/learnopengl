@@ -7,8 +7,8 @@ class VertexArray
 {
 public:
 	VertexArray(GLsizei n = 1);
-	unsigned int GetVAO() { return VAO; };
+	unsigned int GetVAO() { return m_VAO; };
 	void Delete();
 private:
-	unsigned int VAO = 0;
+	unsigned int m_VAO = 0;
 };

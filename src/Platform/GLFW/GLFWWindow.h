@@ -17,5 +17,5 @@ public:
 	void PollEvents();
 	void Terminate();
 private:
-	GLFWwindow* window = nullptr;
+	GLFWwindow* m_Window = nullptr;
 };

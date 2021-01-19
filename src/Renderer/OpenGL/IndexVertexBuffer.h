@@ -10,7 +10,7 @@ public:
 	void SetAttribPointer(GLint size, GLsizei stride, const void* pointer, GLenum type = GL_FLOAT, GLboolean normalized = GL_FALSE);
 	void Delete();
 private:
-	unsigned int EBO = 0;
-	unsigned int VBO = 0;
-	GLenum target = GL_ELEMENT_ARRAY_BUFFER;
+	unsigned int m_EBO = 0;
+	unsigned int m_VBO = 0;
+	GLenum m_Target = GL_ELEMENT_ARRAY_BUFFER;
 };

@@ -25,20 +25,20 @@ GLFWWindow::GLFWWindow(int width, int height, std::string name, int openGLMajorV
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, openGLMinorVersion);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
-    window = glfwCreateWindow(width, height, name.c_str(), NULL, NULL);
+    m_Window = glfwCreateWindow(width, height, name.c_str(), NULL, NULL);
 
-    if (window == NULL)
+    if (m_Window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         exit(-1);
     }
 
-    glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
+    glfwSetFramebufferSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
     });
 
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(m_Window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -51,18 +51,18 @@ GLFWWindow::GLFWWindow(int width, int height, std::string name, int openGLMajorV
 
 bool GLFWWindow::ShouldClose()
 {
-    return glfwWindowShouldClose(window);
+    return glfwWindowShouldClose(m_Window);
 }
 
 void GLFWWindow::SwapBuffers()
 {
-    glfwSwapBuffers(window);
+    glfwSwapBuffers(m_Window);
 }
 
 void GLFWWindow::ProcessInput()
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(m_Window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(m_Window, true);
 }
 
 void GLFWWindow::PollEvents()

@@ -1,19 +1,19 @@
 #include "VertexBuffer.h"
 
-VertexBuffer::VertexBuffer(const void* data, int size, GLsizei n, GLenum type) : type(type)
+VertexBuffer::VertexBuffer(const void* data, int size, GLsizei n, GLenum type) : m_Type(type)
 {
-	glGenBuffers(n, &VBO);
-	glBufferData(target, size, data, type);
+	glGenBuffers(n, &m_VBO);
+	glBufferData(m_Target, size, data, m_Type);
 }
 
 void VertexBuffer::Bind()
 {
-	glBindBuffer(target, VBO);
+	glBindBuffer(m_Target, m_VBO);
 }
 
 void VertexBuffer::UnBind()
 {
-	glBindBuffer(target, 0);
+	glBindBuffer(m_Target, 0);
 }
 
 void VertexBuffer::SetAttribPointer(GLint size, GLsizei stride, const void* pointer, GLenum type, GLboolean normalized)
@@ -24,5 +24,5 @@ void VertexBuffer::SetAttribPointer(GLint size, GLsizei stride, const void* poin
 
 void VertexBuffer::Delete()
 {
-	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &m_VBO);
 }
