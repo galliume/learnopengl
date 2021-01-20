@@ -51,9 +51,10 @@ void App::Run()
     shader.AddFragment(1, &fragmentShaderSource);
     shader.Bind();
 
-    VertexArray vertexArray(1);
 
     VertexBuffer vertexBuffer(vertices, sizeof(vertices));
+    VertexArray vertexArray(1);
+    vertexArray.Bind();
     vertexBuffer.SetAttribPointer(3, 3, (void*)0);
 
     /**
@@ -69,8 +70,10 @@ void App::Run()
         window->ProcessInput();
         
         Renderer::Clear();
-        vertexBuffer.Bind();
-        Renderer::DrawArrays(vertexArray.GetVAO(), 3);
+        //vertexBuffer.Bind();
+        //glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        Renderer::DrawArrays(3);
         
         //Renderer::DrawElements(6);
         //Renderer::DrawElements(6);
@@ -82,8 +85,8 @@ void App::Run()
     //indexedVertexBuffer.Delete();
     //indexedVertexBuffer2.Delete();
 
-    vertexBuffer.Delete();
-    vertexArray.Delete();
+    //vertexBuffer.Delete();
+    //vertexArray.Delete();
     shader.Delete();
 
     window->Terminate();
