@@ -16,11 +16,9 @@ IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, con
 	/* opengl 4*/
 	glCreateBuffers(1, &m_VBO);
 	glNamedBufferData(m_VBO, verticesSize, vertices, GL_STATIC_DRAW);
-	glBindBuffer(m_Type, m_VBO);
 
 	glCreateBuffers(1, &m_EBO);
 	glNamedBufferData(m_EBO, indicesSize, indices, GL_STATIC_DRAW);
-	glBindBuffer(m_Type, m_EBO);
 }
 
 void IndexVertexBuffer::Delete()

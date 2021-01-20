@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -8,7 +10,7 @@
 class OpenGLRenderer : public AbstractRenderer
 {
 public:
-	OpenGLRenderer(bool drawAsPolygon = false);
+	OpenGLRenderer(bool drawAsPolygon = false, bool debugMode = true);
 	void Clear();
 	void Draw(int count);
 private:
