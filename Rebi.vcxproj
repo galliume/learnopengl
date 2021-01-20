@@ -112,11 +112,12 @@
     <ClCompile Include="src\Platform\PlatformFactory.cpp" />
     <ClCompile Include="src\Rebi\App.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\IndexVertexBuffer.cpp" />
-    <ClCompile Include="src\Renderer\OpenGL\Renderer.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\OpenGLRenderer.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\VertexArray.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\VertexBuffer.cpp" />
     <ClCompile Include="src\Platform\GLFW\GLFWWindow.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\Shader.cpp" />
+    <ClCompile Include="src\Renderer\RendererFactory.cpp" />
     <ClCompile Include="vendor\Include\glad\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
@@ -124,12 +125,14 @@
     <ClInclude Include="src\Platform\PlatformFactory.h" />
     <ClInclude Include="src\Rebi\App.h" />
     <ClInclude Include="src\Rebi\rebipch.h" />
+    <ClInclude Include="src\Renderer\Abstract\AbstractRenderer.h" />
     <ClInclude Include="src\Renderer\OpenGL\IndexVertexBuffer.h" />
-    <ClInclude Include="src\Renderer\OpenGL\Renderer.h" />
+    <ClInclude Include="src\Renderer\OpenGL\OpenGLRenderer.h" />
     <ClInclude Include="src\Renderer\OpenGL\VertexArray.h" />
     <ClInclude Include="src\Renderer\OpenGL\VertexBuffer.h" />
     <ClInclude Include="src\Platform\GLFW\GLFWWindow.h" />
     <ClInclude Include="src\Renderer\OpenGL\Shader.h" />
+    <ClInclude Include="src\Renderer\RendererFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

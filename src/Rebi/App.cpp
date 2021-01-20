@@ -7,11 +7,12 @@
 #include "../Renderer/OpenGL/VertexBuffer.h"
 #include "../Renderer/OpenGL/IndexVertexBuffer.h"
 #include "../Renderer/OpenGL/Shader.h"
-#include "../Renderer/OpenGL/Renderer.h"
+#include "../Renderer/OpenGL/OpenGLRenderer.h"
 
 App::App(int width, int height, std::string name)
 {
-	window = PlatformFactory::GetPlatform(width, height, name);
+	m_Window = PlatformFactory::GetPlatform(width, height, name);
+    m_Renderer = RendererFactory::GetRenderer();
 }
 
 void App::Run()
@@ -66,46 +67,41 @@ void App::Run()
     shader2.AddVertex(1, &vertexShaderSource);
     shader2.AddFragment(1, &fragmentShaderSource2);
 
-    //VertexBuffer vertexBuffer(vertices, sizeof(vertices));
     IndexVertexBuffer indexedVertexBuffer(vertices2, sizeof(vertices2), indices, sizeof(indices));
-
     VertexArray vertexArray(1, indexedVertexBuffer);
-    vertexArray.SetAttribPointer(3, 12);
     vertexArray.Bind();
-        
-    /*
-    VertexArray vertexArray2(1);
-    vertexArray2.Bind();
-    IndexVertexBuffer indexedVertexBuffer(vertices2, sizeof(vertices2), indices, sizeof(indices));
-    vertexArray2.SetAttribPointer(3, 3, (void*)0);
-    */
-    
-    while (!window->ShouldClose())
-    {
-        window->ProcessInput();
-        
-        Renderer::Clear();
-        shader2.Bind();
-        vertexArray.Bind();
-        //Renderer::DrawArrays(3);
-        Renderer::DrawElements(6);
+    vertexArray.SetAttribPointer(3, 12);
 
-        /*
+    IndexVertexBuffer indexedVertexBuffer2(vertices3, sizeof(vertices3), indices, sizeof(indices));
+    VertexArray vertexArray2(1, indexedVertexBuffer2);
+    vertexArray2.Bind();
+    vertexArray2.SetAttribPointer(3, 12);
+    
+    
+    while (!m_Window->ShouldClose())
+    {
+        m_Window->ProcessInput();
+        
+        m_Renderer->Clear();
+        
         shader.Bind();
         vertexArray2.Bind();
-        */
+        m_Renderer->Draw(6);
 
-        window->SwapBuffers();
-        window->PollEvents();
+        shader2.Bind();
+        vertexArray.Bind();
+        m_Renderer->Draw(6);
+
+        m_Window->SwapBuffers();
+        m_Window->PollEvents();
     }
 
-    /*
     vertexArray2.Delete();
-    vertexBuffer.Delete();
-    */
+    indexedVertexBuffer2.Delete();
     indexedVertexBuffer.Delete();   
     vertexArray.Delete();
+    shader2.Delete();
     shader.Delete();
 
-    window->Terminate();
+    m_Window->Terminate();
 }
