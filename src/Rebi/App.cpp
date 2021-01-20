@@ -22,10 +22,10 @@ void App::Run()
          0.0f,  0.9f, 0.0f
     };
     float vertices2[] = {
-         0.2f, -0.2f, 0.1f,  // bottom right
-         0.2f,  0.2f, 0.1f,  // top right
-        -0.2f, -0.2f, 0.1f,  // bottom left
-        -0.2f,  0.2f, 0.1f   // top left 
+         0.2f, -0.2f, 0.0f,  // bottom right
+         0.2f,  0.2f, 0.0f,  // top right
+        -0.2f, -0.2f, 0.0f,  // bottom left
+        -0.2f,  0.2f, 0.0f   // top left 
     };
     float vertices3[] = {
          0.5f,  0.5f, 0.0f,  // top right
@@ -66,18 +66,20 @@ void App::Run()
     shader2.AddVertex(1, &vertexShaderSource);
     shader2.AddFragment(1, &fragmentShaderSource2);
 
-    VertexArray vertexArray(1);
+    //VertexBuffer vertexBuffer(vertices, sizeof(vertices));
+    IndexVertexBuffer indexedVertexBuffer(vertices2, sizeof(vertices2), indices, sizeof(indices));
+
+    VertexArray vertexArray(1, indexedVertexBuffer);
+    vertexArray.SetAttribPointer(3, 12);
     vertexArray.Bind();
-    
-    VertexBuffer vertexBuffer(vertices, sizeof(vertices));
-    vertexBuffer.SetAttribPointer(3, 3, (void*)0);
-    
+        
+    /*
     VertexArray vertexArray2(1);
     vertexArray2.Bind();
-
     IndexVertexBuffer indexedVertexBuffer(vertices2, sizeof(vertices2), indices, sizeof(indices));
-    indexedVertexBuffer.SetAttribPointer(3, 3, (void*)0);
-
+    vertexArray2.SetAttribPointer(3, 3, (void*)0);
+    */
+    
     while (!window->ShouldClose())
     {
         window->ProcessInput();
@@ -85,19 +87,23 @@ void App::Run()
         Renderer::Clear();
         shader2.Bind();
         vertexArray.Bind();
-        Renderer::DrawArrays(3);
+        //Renderer::DrawArrays(3);
+        Renderer::DrawElements(6);
 
+        /*
         shader.Bind();
         vertexArray2.Bind();
-        Renderer::DrawElements(6);
+        */
 
         window->SwapBuffers();
         window->PollEvents();
     }
 
-    indexedVertexBuffer.Delete();   
-    vertexBuffer.Delete();
+    /*
     vertexArray2.Delete();
+    vertexBuffer.Delete();
+    */
+    indexedVertexBuffer.Delete();   
     vertexArray.Delete();
     shader.Delete();
 

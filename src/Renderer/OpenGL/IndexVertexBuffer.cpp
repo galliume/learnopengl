@@ -2,6 +2,7 @@
 
 IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, const void* indices, int indicesSize, GLenum type)
 {
+	/* opengl 3 
 	glGenBuffers(1, &m_VBO);
 	glGenBuffers(1, &m_EBO);
 
@@ -10,11 +11,16 @@ IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, con
 
 	glBindBuffer(m_Target, m_EBO);
 	glBufferData(m_Target, indicesSize, indices, type);
-}
+	*/
 
-void IndexVertexBuffer::SetAttribPointer(GLint size, GLsizei stride, const void* pointer, GLenum type, GLboolean normalized)
-{
-	glVertexAttribPointer(0, size, type, normalized, stride * sizeof(float), pointer);
+	/* opengl 4*/
+	glCreateBuffers(1, &m_VBO);
+	glNamedBufferData(m_VBO, verticesSize, vertices, GL_STATIC_DRAW);
+	glBindBuffer(m_Type, m_VBO);
+
+	glCreateBuffers(1, &m_EBO);
+	glNamedBufferData(m_EBO, indicesSize, indices, GL_STATIC_DRAW);
+	glBindBuffer(m_Type, m_EBO);
 }
 
 void IndexVertexBuffer::Delete()

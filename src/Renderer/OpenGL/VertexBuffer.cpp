@@ -2,19 +2,16 @@
 
 VertexBuffer::VertexBuffer(const void* data, int size, GLsizei n, GLenum type) : m_Type(type)
 {
+	/* opengl 3 
 	glGenBuffers(n, &m_VBO);
 	glBindBuffer(m_Target, m_VBO);
 	glBufferData(m_Target, size, data, m_Type);
-}
+	*/
 
-void VertexBuffer::UnBind()
-{
-	glBindBuffer(m_Target, 0);
-}
-
-void VertexBuffer::SetAttribPointer(GLint size, GLsizei stride, const void* pointer, GLenum type, GLboolean normalized)
-{
-	glVertexAttribPointer(0, size, type, normalized, stride * sizeof(float), pointer);
+	/* opengl 4 */
+	glCreateBuffers(n, &m_VBO);
+	glNamedBufferData(m_VBO, size, data, m_Type);
+	glBindBuffer(m_Type, m_VBO);
 }
 
 void VertexBuffer::Delete()
