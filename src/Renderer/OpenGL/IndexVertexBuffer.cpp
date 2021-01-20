@@ -15,7 +15,6 @@ IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, con
 void IndexVertexBuffer::SetAttribPointer(GLint size, GLsizei stride, const void* pointer, GLenum type, GLboolean normalized)
 {
 	glVertexAttribPointer(0, size, type, normalized, stride * sizeof(float), pointer);
-	glEnableVertexAttribArray(0);
 }
 
 void IndexVertexBuffer::Delete()

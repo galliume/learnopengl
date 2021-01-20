@@ -17,15 +17,21 @@ App::App(int width, int height, std::string name)
 void App::Run()
 {
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+        -0.9f, -0.9f, 0.0f,
+         0.9f, -0.9f, 0.0f,
+         0.0f,  0.9f, 0.0f
     };
     float vertices2[] = {
          0.2f, -0.2f, 0.1f,  // bottom right
          0.2f,  0.2f, 0.1f,  // top right
         -0.2f, -0.2f, 0.1f,  // bottom left
         -0.2f,  0.2f, 0.1f   // top left 
+    };
+    float vertices3[] = {
+         0.5f,  0.5f, 0.0f,  // top right
+         0.5f, -0.5f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  // bottom left
+        -0.5f,  0.5f, 0.0f   // top left 
     };
     unsigned int indices[] = {  // note that we start from 0!
         0, 1, 3,   // first triangle
@@ -45,48 +51,54 @@ void App::Run()
         "{\n"
             "FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
         "}\n";
-        
+    const char* fragmentShaderSource2 = "#version 460 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "FragColor = vec4(0.1f, 0.8f, 0.6f, 1.0f);\n"
+        "}\n";
+
     Shader shader;
     shader.AddVertex(1, &vertexShaderSource);
     shader.AddFragment(1, &fragmentShaderSource);
-    shader.Bind();
 
+    Shader shader2;
+    shader2.AddVertex(1, &vertexShaderSource);
+    shader2.AddFragment(1, &fragmentShaderSource2);
 
-    VertexBuffer vertexBuffer(vertices, sizeof(vertices));
     VertexArray vertexArray(1);
     vertexArray.Bind();
+    
+    VertexBuffer vertexBuffer(vertices, sizeof(vertices));
     vertexBuffer.SetAttribPointer(3, 3, (void*)0);
+    
+    VertexArray vertexArray2(1);
+    vertexArray2.Bind();
 
-    /**
-    IndexVertexBuffer indexedVertexBuffer(vertices, sizeof(vertices), indices, sizeof(indices));
+    IndexVertexBuffer indexedVertexBuffer(vertices2, sizeof(vertices2), indices, sizeof(indices));
     indexedVertexBuffer.SetAttribPointer(3, 3, (void*)0);
-
-    IndexVertexBuffer indexedVertexBuffer2(vertices2, sizeof(vertices2), indices, sizeof(indices));
-    indexedVertexBuffer2.SetAttribPointer(3, 3, (void*)0);
-    */
 
     while (!window->ShouldClose())
     {
         window->ProcessInput();
         
         Renderer::Clear();
-        //vertexBuffer.Bind();
-        //glDrawArrays(GL_TRIANGLES, 0, 3);
-
+        shader2.Bind();
+        vertexArray.Bind();
         Renderer::DrawArrays(3);
-        
-        //Renderer::DrawElements(6);
-        //Renderer::DrawElements(6);
+
+        shader.Bind();
+        vertexArray2.Bind();
+        Renderer::DrawElements(6);
 
         window->SwapBuffers();
         window->PollEvents();
     }
 
-    //indexedVertexBuffer.Delete();
-    //indexedVertexBuffer2.Delete();
-
-    //vertexBuffer.Delete();
-    //vertexArray.Delete();
+    indexedVertexBuffer.Delete();   
+    vertexBuffer.Delete();
+    vertexArray2.Delete();
+    vertexArray.Delete();
     shader.Delete();
 
     window->Terminate();
