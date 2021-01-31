@@ -48,22 +48,14 @@ void App::Run()
         "   color = vec4(v_Color, 1.0f);\n"
         "}\n\0";
 
-    Shader shader;
-    shader.AddVertex(1, &vertexShaderSource);
-    shader.AddFragment(1, &fragmentShaderSource);
-
-
+    Shader shader(
+        "./../../shaders/triangle.vert", 
+        "./../../shaders/triangle.frag"
+    );
+    
     IndexVertexBuffer indexedVertexBuffer(vertices, sizeof(vertices), indices, sizeof(indices));
     VertexArray vertexArray(1, indexedVertexBuffer);
-    //vertexArray.Bind();
     vertexArray.SetAttribPointer(3, 24);
-
-    /*
-    IndexVertexBuffer indexedVertexBuffer2(vertices2, sizeof(vertices2), indices, sizeof(indices));
-    VertexArray vertexArray2(1, indexedVertexBuffer2);
-    vertexArray2.Bind();
-    vertexArray2.SetAttribPointer(3, 12);
-    */
     
     while (!m_Window->ShouldClose())
     {
@@ -71,11 +63,6 @@ void App::Run()
         
         m_Renderer->Clear();
         
-        /*
-        shader.Bind();
-        vertexArray2.Bind();
-        m_Renderer->Draw(6);
-        */
         shader.Bind();
         vertexArray.Bind();
         m_Renderer->Draw(3);
@@ -84,9 +71,7 @@ void App::Run()
         m_Window->PollEvents();
     }
 
-    //vertexArray2.Delete();
-    //indexedVertexBuffer2.Delete();
-    indexedVertexBuffer.Delete();   
+    indexedVertexBuffer.Delete();
     vertexArray.Delete();
     shader.Delete();
 
