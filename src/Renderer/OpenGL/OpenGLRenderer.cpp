@@ -9,6 +9,8 @@ void OpenGLMessageCallback(
 	const char* message,
 	const void* userParam)
 {
+	std::cout << "--------------------------" << std::endl;
+
 	//@todo use spdlog
 	switch (severity)
 	{
@@ -44,6 +46,9 @@ OpenGLRenderer::OpenGLRenderer(bool drawAsPolygon, bool debugMode)
 	std::cout << "Renderer " << (const char*)glGetString(GL_RENDERER) << std::endl;
 	std::cout << "Version " << (const char*)glGetString(GL_VERSION) << std::endl;
 	std::cout << "ShadingLanguageVersion " << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+	std::cout << "--------------------------" << std::endl;
+	std::cout << std::endl;
+
 }
 
 void OpenGLRenderer::Clear()

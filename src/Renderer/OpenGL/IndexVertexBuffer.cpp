@@ -13,7 +13,7 @@ IndexVertexBuffer::IndexVertexBuffer(const void* vertices, int verticesSize, con
 	glBufferData(m_Target, indicesSize, indices, type);
 	*/
 
-	/* opengl 4*/
+	/* opengl 4 */
 	glCreateBuffers(1, &m_VBO);
 	glNamedBufferData(m_VBO, verticesSize, vertices, GL_STATIC_DRAW);
 

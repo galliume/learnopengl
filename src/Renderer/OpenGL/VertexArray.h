@@ -14,6 +14,6 @@ public:
 	void Bind();
 	void Delete();
 private:
-	unsigned int m_VAO = 0;
+	GLuint m_VAO = 0;
 	IndexVertexBuffer m_VBO;
 };
