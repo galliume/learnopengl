@@ -19,14 +19,14 @@ void VertexArray::SetAttribPointer(GLint count, GLsizei stride, GLenum type, GLb
 
 	/* opengl 4*/
 	glEnableVertexArrayAttrib(m_VAO, 0);
-	glVertexArrayAttribFormat(m_VAO, 0, 3, type, normalized, 0);
+	glVertexArrayAttribFormat(m_VAO, 0, count, type, normalized, 0);
 	glVertexArrayAttribBinding(m_VAO, 0, 0);
 
 	glEnableVertexArrayAttrib(m_VAO, 1);
-	glVertexArrayAttribFormat(m_VAO, 1, 3, type, normalized, 12);
+	glVertexArrayAttribFormat(m_VAO, 1, count, type, normalized, stride);
 	glVertexArrayAttribBinding(m_VAO, 1, 0);
 
-	glVertexArrayVertexBuffer(m_VAO, 0, m_VBO.GetVBOID(), 0, 24);
+	glVertexArrayVertexBuffer(m_VAO, 0, m_VBO.GetVBOID(), 0, stride);
 	glVertexArrayElementBuffer(m_VAO, m_VBO.GetEBOID());
 }
 

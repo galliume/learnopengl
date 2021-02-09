@@ -29,28 +29,9 @@ void App::Run()
         1, 2, 3    // second triangle
     };
 
-    const char* vertexShaderSource = "#version 330 core\n"
-        "layout (location = 0) in vec3 aPos;\n"
-        "layout (location = 1) in vec3 aColor;\n"
-        "out vec3 v_Color;\n"
-        "void main()\n"
-        "{\n"
-        "   v_Color = aColor;\n"
-        "   gl_Position = vec4(aPos, 1.0);\n"
-        "}\0";
-
-    const char* fragmentShaderSource = "#version 330 core\n"
-        "layout(location = 0) out vec4 color;\n"
-        "in vec3 v_Color;\n"
-        "uniform float u_Time;\n"
-        "void main()\n"
-        "{\n"
-        "   color = vec4(v_Color, 1.0f);\n"
-        "}\n\0";
-
     Shader shader(
-        "./../../shaders/triangle.vert", 
-        "./../../shaders/triangle.frag"
+        "shaders/triangle.vert", 
+        "shaders/triangle.frag"
     );
     
     IndexVertexBuffer indexedVertexBuffer(vertices, sizeof(vertices), indices, sizeof(indices));
