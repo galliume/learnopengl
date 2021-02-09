@@ -23,10 +23,10 @@ void VertexArray::SetAttribPointer(GLint count, GLsizei stride, GLenum type, GLb
 	glVertexArrayAttribBinding(m_VAO, 0, 0);
 
 	glEnableVertexArrayAttrib(m_VAO, 1);
-	glVertexArrayAttribFormat(m_VAO, 1, count, type, normalized, stride);
+	glVertexArrayAttribFormat(m_VAO, 1, count, type, normalized, count * sizeof(float));
 	glVertexArrayAttribBinding(m_VAO, 1, 0);
 
-	glVertexArrayVertexBuffer(m_VAO, 0, m_VBO.GetVBOID(), 0, stride);
+	glVertexArrayVertexBuffer(m_VAO, 0, m_VBO.GetVBOID(), 0, stride * sizeof(float));
 	glVertexArrayElementBuffer(m_VAO, m_VBO.GetEBOID());
 }
 

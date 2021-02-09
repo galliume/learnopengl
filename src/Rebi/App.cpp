@@ -21,12 +21,11 @@ void App::Run()
         // positions         // colors
          0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
         -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
-         0.0f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f   // top 
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top 
     };
 
-    unsigned int indices[] = {  // note that we start from 0!
-        0, 1, 3,   // first triangle
-        1, 2, 3    // second triangle
+    unsigned int indices[] = {
+        0, 1, 2   // first triangle
     };
 
     Shader shader(
@@ -36,7 +35,7 @@ void App::Run()
     
     IndexVertexBuffer indexedVertexBuffer(vertices, sizeof(vertices), indices, sizeof(indices));
     VertexArray vertexArray(1, indexedVertexBuffer);
-    vertexArray.SetAttribPointer(3, 24);
+    vertexArray.SetAttribPointer(3, 6);
     
     while (!m_Window->ShouldClose())
     {
@@ -44,7 +43,11 @@ void App::Run()
         
         m_Renderer->Clear();
         
+        float timeValue = glfwGetTime();
+        float greenValue = sin(timeValue) / 2.0f + 0.5f;
+
         shader.Bind();
+        shader.SetFloat("u_Time", greenValue);
         vertexArray.Bind();
         m_Renderer->Draw(3);
 

@@ -75,12 +75,7 @@ void Shader::AddFragment(GLsizei count, const GLchar** string, const GLint* leng
 
 void Shader::Bind()
 {
-	float timeValue = glfwGetTime();
-	float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-	int vertexColorLocation = glGetUniformLocation(m_ShaderProgram, "u_Time");
-
 	glUseProgram(m_ShaderProgram);
-	glUniform1f(vertexColorLocation, greenValue);
 }
 
 void Shader::Delete()
