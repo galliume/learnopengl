@@ -1,94 +1,120 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    <Filter Include="src\Platform\Abstract">
+      <UniqueIdentifier>{4455326F-B0C1-ED69-79B5-85C7E5E00FD2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\GLFW">
+      <UniqueIdentifier>{0002C6D8-6C18-C46E-B58F-4F9021E594F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Rebi">
+      <UniqueIdentifier>{BEE024CF-AAAD-7FDA-D3C6-6D82BFF2B468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderer">
+      <UniqueIdentifier>{73D1DFBF-5F34-6F64-08BA-A71AF4FB3AE7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderer\Abstract">
+      <UniqueIdentifier>{D6B80968-4225-C562-0B19-5DC07744E7CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderer\OpenGL">
+      <UniqueIdentifier>{47FBB911-B35C-971F-3CCA-DDD1A82ACEDE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\glad">
+      <UniqueIdentifier>{9A8E79C1-0644-F2B6-8F38-EC8DFBECE8BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\glad\src">
+      <UniqueIdentifier>{B1098FEA-1D95-FCAE-26A6-7FA392B058AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="vendor\Include\glad\src\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\PlatformFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rebi\App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rebi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\GLFW\GLFWWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\OpenGL\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\OpenGL\VertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\OpenGL\IndexVertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\OpenGL\VertexArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\RendererFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Renderer\OpenGL\OpenGLRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Rebi\rebipch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\PlatformFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Abstract\AbstractWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rebi\App.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\Platform\Abstract</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\GLFW\GLFWWindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\Platform\GLFW</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\OpenGL\Shader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Platform\PlatformFactory.h">
+      <Filter>src\Platform</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\OpenGL\VertexBuffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Rebi\App.h">
+      <Filter>src\Rebi</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\OpenGL\IndexVertexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Renderer\OpenGL\VertexArray.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Rebi\rebipch.h">
+      <Filter>src\Rebi</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\Abstract\AbstractRenderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\Renderer\Abstract</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\RendererFactory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Renderer\OpenGL\IndexVertexBuffer.h">
+      <Filter>src\Renderer\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\OpenGL\OpenGLRenderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\OpenGL\Shader.h">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\OpenGL\VertexArray.h">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\OpenGL\VertexBuffer.h">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\RendererFactory.h">
+      <Filter>src\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\triangle.frag" />
-    <None Include="shaders\triangle.vert" />
+    <ClCompile Include="src\Platform\GLFW\GLFWWindow.cpp">
+      <Filter>src\Platform\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\PlatformFactory.cpp">
+      <Filter>src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rebi.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rebi\App.cpp">
+      <Filter>src\Rebi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\IndexVertexBuffer.cpp">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\OpenGLRenderer.cpp">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\Shader.cpp">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\VertexArray.cpp">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\OpenGL\VertexBuffer.cpp">
+      <Filter>src\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\RendererFactory.cpp">
+      <Filter>src\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\glad\src\glad.c">
+      <Filter>vendor\glad\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

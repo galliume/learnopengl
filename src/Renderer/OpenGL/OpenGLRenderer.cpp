@@ -1,6 +1,7 @@
 #include "OpenGLRenderer.h"
 
-void OpenGLMessageCallback(
+void GLAPIENTRY
+OpenGLMessageCallback(
 	unsigned source,
 	unsigned type,
 	unsigned id,

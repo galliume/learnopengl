@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "../Abstract/AbstractRenderer.h"
+#include "Renderer/Abstract/AbstractRenderer.h"
 
 class OpenGLRenderer : public AbstractRenderer
 {

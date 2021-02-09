@@ -1,0 +1,24 @@
+﻿  App.cpp
+C:\Users\Guillaume\Documents\_workspace\Rebi\src\Rebi\App.cpp(52,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  OpenGLRenderer.cpp
+  Shader.cpp
+C:\Users\Guillaume\Documents\_workspace\Rebi\src\Renderer\OpenGL\Shader.cpp(32,38): warning C4101: 'e': unreferenced local variable
+  RendererFactory.cpp
+  stb_image.cpp
+  Generating Code...
+  glad.c
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwWindowHint referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function "public: virtual bool __thiscall GLFWWindow::ShouldClose(void)" (?ShouldClose@GLFWWindow@@UAE_NXZ)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwSetWindowShouldClose referenced in function "public: virtual void __thiscall GLFWWindow::ProcessInput(void)" (?ProcessInput@GLFWWindow@@UAEXXZ)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwSetFramebufferSizeCallback referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwPollEvents referenced in function "public: virtual void __thiscall GLFWWindow::PollEvents(void)" (?PollEvents@GLFWWindow@@UAEXXZ)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwGetKey referenced in function "public: virtual void __thiscall GLFWWindow::ProcessInput(void)" (?ProcessInput@GLFWWindow@@UAEXXZ)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwSwapBuffers referenced in function "public: virtual void __thiscall GLFWWindow::SwapBuffers(void)" (?SwapBuffers@GLFWWindow@@UAEXXZ)
+GLFWWindow.obj : error LNK2019: unresolved external symbol _glfwGetProcAddress referenced in function "public: __thiscall GLFWWindow::GLFWWindow(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (??0GLFWWindow@@QAE@HHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+App.obj : error LNK2019: unresolved external symbol _glfwGetTime referenced in function "public: void __thiscall App::Run(void)" (?Run@App@@QAEXXZ)
+vendor\GLFW\Lib\glfw3.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+bin\Debug-windows-\Rebi\Rebi.exe : fatal error LNK1120: 13 unresolved externals

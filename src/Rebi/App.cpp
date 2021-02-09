@@ -3,11 +3,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "../Renderer/OpenGL/VertexArray.h"
-#include "../Renderer/OpenGL/VertexBuffer.h"
-#include "../Renderer/OpenGL/IndexVertexBuffer.h"
-#include "../Renderer/OpenGL/Shader.h"
-#include "../Renderer/OpenGL/OpenGLRenderer.h"
+#include "Renderer/OpenGL/VertexArray.h"
+#include "Renderer/OpenGL/VertexBuffer.h"
+#include "Renderer/OpenGL/IndexVertexBuffer.h"
+#include "Renderer/OpenGL/Shader.h"
+#include "Renderer/OpenGL/OpenGLRenderer.h"
+
+#include "stb_image.h"
 
 App::App(int width, int height, std::string name)
 {
@@ -26,6 +28,12 @@ void App::Run()
 
     unsigned int indices[] = {
         0, 1, 2   // first triangle
+    };
+
+    float texCoords[] = {
+        0.0f, 0.0f,  // lower-left corner  
+        1.0f, 0.0f,  // lower-right corner
+        0.5f, 1.0f   // top-center corner
     };
 
     Shader shader(

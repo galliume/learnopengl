@@ -1,0 +1,4 @@
+﻿  App.cpp
+C:\Users\Guillaume\Documents\_workspace\Rebi\src\Rebi\App.cpp(54,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Rebi.vcxproj -> C:\Users\Guillaume\Documents\_workspace\Rebi\bin\Debug-windows-x86_64\Rebi\Rebi.exe

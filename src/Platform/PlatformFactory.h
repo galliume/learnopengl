@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "../Rebi/rebipch.h"
-#include "Abstract/AbstractWindow.h"
+#include "Rebi/rebipch.h"
+#include "Platform/Abstract/AbstractWindow.h"
 
 class PlatformFactory
 {

@@ -2,8 +2,8 @@
 #include <string>
 
 #include <glad/glad.h>
-#include "../Platform/PlatformFactory.h"
-#include "../Renderer/RendererFactory.h"
+#include "Platform/PlatformFactory.h"
+#include "Renderer/RendererFactory.h"
 
 class App
 {

@@ -7,5 +7,5 @@ uniform float u_Time;
 
 void main()
 {
-	FragColor = vec4(v_Color, 1.0f);
+	FragColor = vec4(v_Color * u_Time, 1.0f);
 }

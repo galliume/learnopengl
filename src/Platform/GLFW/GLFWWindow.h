@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "../Abstract/AbstractWindow.h"
+#include "Platform/Abstract/AbstractWindow.h"
 
 class GLFWWindow : public AbstractWindow
 {
