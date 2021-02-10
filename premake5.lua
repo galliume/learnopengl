@@ -15,11 +15,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "vendor/GLFW/include"
-IncludeDir["Glad"] = "vendor/Glad/include"
+IncludeDir["Glad"] = "vendor/GLAD/include"
 IncludeDir["stb_image"] = "vendor/stb_image"
 
 include "vendor/GLFW"
-include "vendor/Glad"
+include "vendor/GLAD"
 
 project "Rebi"
 	location ""
@@ -35,7 +35,7 @@ project "Rebi"
 	{
 		"src/**.h",
 		"src/**.cpp",
-		"vendor/glad/src/glad.c",
+		"vendor/GLAD/src/glad.c",
 		"vendor/stb_image/**.h",
 		"vendor/stb_image/**.cpp"
 	}
@@ -77,5 +77,5 @@ project "Rebi"
 	filter { "system:windows" }
 		links { "OpenGL32" }
 		
-	filter { "system:not windows" }
-		links { "GL", "GLU", "glfw", "dl" }
+	filter { "system:linux" }
+		links { "GL", "GLU", "dl", "glfw", "X11", "pthread" }

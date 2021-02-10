@@ -43,3 +43,28 @@ project "GLFW"
         }
     filter { "system:windows", "configurations:Release" }
         buildoptions "/MT"
+
+    filter "system:linux"
+        buildoptions { "-std=c11" }
+        systemversion "latest"
+        staticruntime "on"
+        
+        files
+        {
+            "src/x11_init.c",
+            "src/linux_joystick.c",
+            "src/x11_monitor.c",
+            "src/posix_time.c",
+            "src/posix_thread.c",
+            "src/x11_window.c",
+            "src/glx_context.c",
+            "src/egl_context.c",
+            "src/osmesa_context.c",
+            "src/xkb_unicode.c"
+        }
+
+		defines 
+		{ 
+            "_GLFW_X11",
+            "_CRT_SECURE_NO_WARNINGS"
+        }
