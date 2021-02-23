@@ -38,3 +38,11 @@ bin-int
 bin
 *.sln
 *.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+vendor/GLAD/bin-int/
+vendor/GLAD/bin/
+vendor/GLFW/bin-int/
+vendor/GLFW/bin/
+vendor/GLFW/src/out/

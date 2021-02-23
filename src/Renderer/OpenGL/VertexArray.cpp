@@ -10,7 +10,7 @@ VertexArray::VertexArray(GLsizei n, IndexVertexBuffer vertexBuffer) : m_VBO(vert
 	glCreateVertexArrays(n, &m_VAO);
 }
 
-void VertexArray::SetAttribPointer(GLint count, GLsizei stride, GLenum type, GLboolean normalized)
+void VertexArray::SetAttrib(GLenum type, GLboolean normalized)
 {
 	/* opengl 3
 	glVertexAttribPointer(0, size, type, normalized, stride * sizeof(float), pointer);
@@ -19,11 +19,11 @@ void VertexArray::SetAttribPointer(GLint count, GLsizei stride, GLenum type, GLb
 
 	/* opengl 4*/
 	glEnableVertexArrayAttrib(m_VAO, 0);
-	glVertexArrayAttribFormat(m_VAO, 0, count, type, normalized, 0);
+	glVertexArrayAttribFormat(m_VAO, 0, 3, type, normalized, 0);
 	glVertexArrayAttribBinding(m_VAO, 0, 0);
 
 	glEnableVertexArrayAttrib(m_VAO, 1);
-	glVertexArrayAttribFormat(m_VAO, 1, count, type, normalized, 12);
+	glVertexArrayAttribFormat(m_VAO, 1, 3, type, normalized, 12);
 	glVertexArrayAttribBinding(m_VAO, 1, 0);
 
 	glEnableVertexArrayAttrib(m_VAO, 2);
