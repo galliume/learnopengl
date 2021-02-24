@@ -20,6 +20,7 @@ public:
 	void SetInt(const std::string& name, int value) const;
 	void SetFloat(const std::string& name, float value) const;
 	void CheckCompileErrors(unsigned int shader, std::string type);
+	int GetID() { return m_ShaderProgram; };
 private:
 	unsigned int m_VertexShader;
 	unsigned int m_FragmentShader;

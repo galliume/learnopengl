@@ -4,6 +4,8 @@ workspace "Rebi"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
+	startproject "Rebi"
+	
 	configurations
 	{
 		"Debug",

@@ -1,7 +1,8 @@
 project "GLFW"
     kind "StaticLib"
     language "C"
-    
+	staticruntime "on"
+
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -18,8 +19,8 @@ project "GLFW"
         "src/window.c"
     }
     
-	filter "system:windows"
-        buildoptions { "-std=c11", "-lgdi32" }
+	filter { "system:windows" }
+        buildoptions "/MT"
         systemversion "latest"
         staticruntime "on"
         
@@ -41,10 +42,8 @@ project "GLFW"
             "_GLFW_WIN32",
             "_CRT_SECURE_NO_WARNINGS"
         }
-    filter { "system:windows", "configurations:Release" }
-        buildoptions "/MT"
 
-    filter "system:linux"
+    filter { "system:linux" }
         buildoptions { "-std=c11" }
         systemversion "latest"
         staticruntime "on"

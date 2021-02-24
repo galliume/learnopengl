@@ -36,7 +36,7 @@ void VertexArray::SetAttrib(GLenum type, GLboolean normalized)
 
 void VertexArray::BindTexture(unsigned int texture)
 {
-	glBindTexture(GL_TEXTURE_2D, 1);
+	glBindTexture(GL_TEXTURE_2D, texture);
 }
 
 void VertexArray::Bind()

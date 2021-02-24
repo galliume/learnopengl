@@ -1,10 +1,11 @@
 #include "Texture.h"
 
-Texture::Texture(const char* texturePath)
+Texture::Texture(const char* texturePath, int textureUnit)
 {
     stbi_set_flip_vertically_on_load(1);
 
     glGenTextures(1, &m_Texture);
+    glActiveTexture(textureUnit);
     glBindTexture(GL_TEXTURE_2D, m_Texture);
 
     // set the texture wrapping/filtering options (on the currently bound texture object)
@@ -23,7 +24,15 @@ Texture::Texture(const char* texturePath)
 
     if (data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        if (JPG_CHANNEL == nrChannels)
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        }
+        else
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        }
+
         glGenerateMipmap(GL_TEXTURE_2D);
     }
     else
