@@ -19,6 +19,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "vendor/GLFW/include"
 IncludeDir["Glad"] = "vendor/GLAD/include"
 IncludeDir["stb_image"] = "vendor/stb_image"
+IncludeDir["GLM"] = "vendor/GLM"
 
 include "vendor/GLFW"
 include "vendor/GLAD"
@@ -39,7 +40,9 @@ project "Rebi"
 		"src/**.cpp",
 		"vendor/GLAD/src/glad.c",
 		"vendor/stb_image/**.h",
-		"vendor/stb_image/**.cpp"
+		"vendor/stb_image/**.cpp",
+		"vendor/GLM/glm/**.hpp",
+		"vendor/GLM/glm/**.inl"		
 	}
 
 	defines
@@ -54,6 +57,7 @@ project "Rebi"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.GLM}",
 		"shaders",
 		"textures"
 	}
